@@ -1,6 +1,6 @@
 AUTHOR = 'Juan M. Díaz Nevado'
 SITENAME = 'Juan M. Diaz Nevado'
-SITEURL = ''
+SITEURL = 'https://juandn.github.io/juandn-blog/'
 
 PATH = 'content'
 
