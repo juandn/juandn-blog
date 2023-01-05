@@ -1,22 +1,20 @@
 AUTHOR = 'Juan M. Díaz Nevado'
 SITENAME = 'Juan M. Diaz Nevado'
-SITEURL = 'https://juandn.github.io/juandn-blog/'
-
+SITEURL = 'http://juandn.github.io/juandn-blog/'
+#SITEURL = ''
 PATH = 'content'
 
 TIMEZONE = 'Europe/Madrid'
 
 DEFAULT_LANG = 'es'
-# Theme flex config
-#THEME = 'Flex'
 
 MAIN_MENU = 'true'
-SITELOGO = '/images/juandn.jpeg'
-# theme pelican-blue
-THEME = 'pelican-blue'
+# theme pelican-antracite
+THEME = 'pelican-antracite'
 SIDEBAR_DIGEST = "Sysadmin"
 DISPLAY_PAGES_ON_MENU = True
-AVATAR = '/images/juandn.jpeg'
+PAGES = True
+AVATAR = 'images/juandn.jpeg'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -36,9 +34,9 @@ SOCIAL = (("github", 'https://github.com/juandn'),
 )
 
 MENUITEMS = (
-    ("Archives", "/archives.html"),
-    ("Categories", "/categories.html"),
-    ("Tags", "/tags.html"),
+    ("Archives", "archives.html"),
+    ("Categories", "categories.html"),
+    ("Tags", "tags.html"),
 )
 
 
