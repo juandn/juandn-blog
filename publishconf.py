@@ -1,7 +1,6 @@
 AUTHOR = 'Juan M. Díaz Nevado'
 SITENAME = 'JuanDN Blog'
 SITEURL = 'https://juandn.github.io/juandn-blog'
-#SITEURL = ''
 PATH = 'content'
 
 DEFAULT_DATE = 'fs'
@@ -16,7 +15,7 @@ THEME = 'pelican-antracite'
 SIDEBAR_DIGEST = "Sysadmin"
 DISPLAY_PAGES_ON_MENU = True
 PAGES = True
-AVATAR = 'images/juandn.jpeg'
+AVATAR = '/images/juandn.jpeg'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -36,9 +35,9 @@ SOCIAL = (("github", 'https://github.com/juandn'),
 )
 
 MENUITEMS = (
-    ("Archives", "archives.html"),
-    ("Categories", "categories.html"),
-    ("Tags", "tags.html"),
+    ("Archivos", "/archives.html"),
+    ("Categorias", "/categories.html"),
+    ("Tags", "/tags.html"),
 )
 
 
