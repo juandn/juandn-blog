@@ -11,7 +11,7 @@ DEFAULT_LANG = 'es'
 
 MAIN_MENU = 'true'
 # theme pelican-antracite
-THEME = 'pelican-antracite'
+THEME = 'pelican-anthracite'
 #THEME = 'notmyidea'
 SIDEBAR_DIGEST = "Sysadmin"
 DISPLAY_PAGES_ON_MENU = True

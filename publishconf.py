@@ -16,7 +16,7 @@ PAGE_SAVE_AS = 'pages/{slug}.html'
 
 MAIN_MENU = 'true'
 # theme pelican-antracite
-THEME = 'pelican-antracite'
+THEME = 'pelican-anthracite'
 SIDEBAR_DIGEST = "Sysadmin"
 DISPLAY_PAGES_ON_MENU = True
 PAGES = True
