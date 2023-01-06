@@ -17,7 +17,7 @@ PAGE_SAVE_AS = 'pages/{slug}.html'
 MAIN_MENU = 'true'
 # theme pelican-antracite
 THEME = 'pelican-anthracite'
-SIDEBAR_DIGEST = "Sysadmin"
+SIDEBAR_DIGEST = "Sysadmin y Rolero"
 DISPLAY_PAGES_ON_MENU = True
 PAGES = True
 AVATAR = 'images/juandn.jpeg'
