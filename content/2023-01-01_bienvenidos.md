@@ -6,9 +6,6 @@ Slug: bienvenidos
 Authors: Juan Manuel Díaz Nevado
 Summary: Bienvenida y creación del blog
 
-This is the content of my super blog post.
-
-# Empiezo un blog
  
 Acaba de llegar 2023 y con él comienzo este proyecto.
 
