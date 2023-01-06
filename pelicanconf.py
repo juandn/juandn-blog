@@ -1,9 +1,10 @@
 AUTHOR = 'Juan M. Díaz Nevado'
-SITENAME = 'Juan M. Diaz Nevado'
-SITEURL = 'https://juandn.github.io/juandn-blog/'
-#SITEURL = ''
+SITENAME = 'JuanDN Blog'
+SITEURL = ''
 PATH = 'content'
 
+DEFAULT_DATE = 'fs'
+DEFAULT_DATE_FORMAT= '%Y-%m-%d'
 TIMEZONE = 'Europe/Madrid'
 
 DEFAULT_LANG = 'es'
@@ -11,6 +12,7 @@ DEFAULT_LANG = 'es'
 MAIN_MENU = 'true'
 # theme pelican-antracite
 THEME = 'pelican-antracite'
+#THEME = 'notmyidea'
 SIDEBAR_DIGEST = "Sysadmin"
 DISPLAY_PAGES_ON_MENU = True
 PAGES = True
