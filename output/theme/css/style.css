@@ -19,7 +19,7 @@ h1, h2 {
   text-align: center;
   margin-bottom: 50px;
   text-transform: none;
-  color: #1DAEDF;
+  color: #c88127;
   line-height: 1;
   font-weight: 600;
 }
@@ -98,10 +98,11 @@ article > header {
 
 
 /* Links */;
-a  { color:#1DAEDF; text-decoration:none; }
-a:visited { color:#1DAEDF; text-decoration:none; }
-a:link { color:#1DAEDF; text-decoration:none; }
-a:active { color:#1DAEDF; text-decoration:none; }
+a  { color:#c88127; text-decoration:none; }
+a:visited { color:#3c5868; text-decoration:none; }
+.post_title > a:visited { color:#c88127; text-decoration:none; }
+a:link { color:#c88127; text-decoration:none; }
+a:active { color:#c88127; text-decoration:none; }
 a:hover { text-decoration: underline; }
 
 /* Code */

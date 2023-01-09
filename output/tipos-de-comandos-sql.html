@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Tipos de comandos SQL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Juan M. Díaz Nevado">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta name="name" itemprop="name" content="JuanDN Blog">
+  <meta name="image" itemprop="image" content="images/juandn.jpeg">
+  <meta   name="description" itemprop="description" content="">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="https://juandn.github.io/juandn-blog/theme/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="https://juandn.github.io/juandn-blog/theme/css/pygments.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html">
+<meta name="twitter:title" content="JuanDN Blog ~ Tipos de comandos SQL">
+<meta name="twitter:description" content="<p>Los comandos SQL pueden dividirse en 5 sub-lenguajes, los revisamos.</p>">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="JuanDN Blog ~ Tipos de comandos SQL" />
+<meta property="og:description" content="<p>Los comandos SQL pueden dividirse en 5 sub-lenguajes, los revisamos.</p>" />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <div id="avatar-box"><a href="https://juandn.github.io/juandn-blog"><img id="avatar" src="https://juandn.github.io/juandn-blog/images/juandn.jpeg"></a></div>
+    <h1>JuanDN Blog</h1>
+      <p>Sysadmin y Rolero</p>
+    <br>
+
+
+    <nav class="nav">
+      <ul class="list-bare">
+      
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/archives.html">Archivos</a></li>
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/categories.html">Categorias</a></li>
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/tags.html">Tags</a></li>
+         
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/pages/sobre-mi.html">Sobre Mi</a></li>
+         
+      </ul>
+    </nav>
+
+    <p class="social">
+        <a href="https://github.com/juandn" target="_blank" ><img src="https://juandn.github.io/juandn-blog/theme/images/icons/github.png"></a>
+        <a href="https://es.linkedin.com/in/juan-manuel-d%C3%ADaz-nevado-b12473131" target="_blank" ><img src="https://juandn.github.io/juandn-blog/theme/images/icons/linkedin.png"></a>
+    </p>
+
+    <!--
+    <h2>Categories</h2>
+    <ul class="navbar">
+      <li  ><a href="https://juandn.github.io/juandn-blog/category/general.html">General</a></li>
+      <li  class="active" ><a href="https://juandn.github.io/juandn-blog/category/sql.html">SQL</a></li>
+    </ul> 
+    -->
+  </aside>
+
+  <!-- Content -->
+  <article>
+<section id="content">
+    <article>
+        <h2 class="post_title post_detail"><a href="https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html" rel="bookmark" title="Permalink to Tipos de comandos SQL">Tipos de comandos SQL</a></h2>
+        <div class="entry-content blog-post">
+            <p>SQL (Structured Query Language) es el estándar de facto en lenguajes de
+SGBD (Sistemas de Gestión de Bases de Datos).</p>
+<p>Los tipos de comandos normalmente se estructuran en 5 categorías:</p>
+<ul>
+<li>DDL – Data Definition Language (Lenguaje de definición de datos)</li>
+<li>DQL – Data Query Language (Language de consulta de datos)</li>
+<li>DML – Data Manipulation Language (Lenguaje de manipulación de datos)</li>
+<li>DCL – Data Control Language (Lenguaje de control de datos)</li>
+<li>TCL – Transaction Control Language (Lenguaje de control de transacción)</li>
+</ul>
+<p><img alt="Sublanguage squema" src="https://juandn.github.io/juandn-blog/images/sql-commands.png"></p>
+<p>Algunos autores solo tienen en cuenta 3 categorías:</p>
+<ul>
+<li>DDL</li>
+<li>DML, donde se incluye el SELECT, este está en realidad un poco aparte,
+ya que permite en algunos motores modificar estructuras o datos, pero
+normalmente solo accede a los datos sin afectarlos. Una explicación
+más detallada de esto se puede encontrar en
+<a href="https://community.oracle.com/tech/developers/discussion/2451336/select-is-dml-or-dql">esta</a>
+respuesta del foro de Oracle.</li>
+<li>DCL, aquí se incluirían los comandos de control de transacciones, si bien es cierto
+que podemos entender las acciones sobre transacciones como control de los datos,
+ya que no los modificamos, controlamos si las modificaciones tienen efecto o no.
+Aun así tienen poco que ver con los otros dos comandos, GRANT y REVOQUE, que gestionan
+los permisos para ejecutar comandos de los otros lenguajes.</li>
+</ul>
+<p>Visto esto es normal que algunos autores le den su propia "caja" al SELECT y
+que separen GRANT y REVOQUE de COMMIT, ROLLBACK,...</p>
+<h2>Recursos para saber mas</h2>
+<h3>DBA Dixit</h3>
+<p>Este blog tiene una miriada de artículos con todo lo que hay que saber
+sobre SQL.</p>
+<ul>
+<li><a href="https://dbadixit.com/">Ir</a></li>
+</ul>
+<h3>w3Schools</h3>
+<p>Una de las paginas mas grandes con tutoriales gratuitos sobre casi todo los lenguajes.</p>
+<ul>
+<li><a href="https://www.w3schools.com/sql/">Ir</a></li>
+</ul>
+        </div>
+        <div class="post_list">
+            <span>By </span>
+            <a href="https://juandn.github.io/juandn-blog/author/juan-manuel-diaz-nevado.html">@Juan Manuel Díaz Nevado</a>
+            <span> in </span>
+            <span class="post_category"><a href="https://juandn.github.io/juandn-blog/category/sql.html" rel="bookmark" title="Permalink to SQL">[ SQL ]</a></span>
+            <span class="post_date">2023-01-09</span>
+            <div><span>Tags : </span>
+            </div>
+
+            <div class="entry-social">
+                <span class="twitter"><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html&text=Tipos de comandos SQL&via="><img src="https://juandn.github.io/juandn-blog/theme/images/icons/twitter-s.png"></a></span>
+
+                <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html&t=Tipos de comandos SQL"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/facebook-s.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html&title=Tipos de comandos SQL" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/linkedin-s.png"></a>
+
+                <span class="mail"><a href="mailto:?subject=Tipos de comandos SQL&amp;body=Viens découvrir un article à propos de [Tipos de comandos SQL] sur le site de Juan M. Díaz Nevado. https://juandn.github.io/juandn-blog/tipos-de-comandos-sql.html" title="Share by Email" target="_blank"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/mail-s.png"></a></span>
+            </div>
+        </div>
+    </article>
+</section>
+  </article>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Blog powered by <a href="http://getpelican.com/">Pelican</a>, 
+      which takes great advantage of <a href="http://python.org">Python</a>.
+      Theme <a href="https://github.com/parbhat/pelican-antracite">Pelican-antracite</a> by <a href="https://juandn.github.io/juandn-blog">juandn</a>.
+    </p>
+  </footer>
+
+
+</body>
+</html>
