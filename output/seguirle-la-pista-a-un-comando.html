@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Seguirle la pista a un comando</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Juan M. Díaz Nevado">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta name="name" itemprop="name" content="JuanDN Blog">
+  <meta name="image" itemprop="image" content="images/juandn.jpeg">
+  <meta   name="description" itemprop="description" content="">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="https://juandn.github.io/juandn-blog/theme/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="https://juandn.github.io/juandn-blog/theme/css/pygments.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html">
+<meta name="twitter:title" content="JuanDN Blog ~ Seguirle la pista a un comando">
+<meta name="twitter:description" content="<p>Repasamos como buscar información sobre comandos y los paquetes que los instalan.</p>">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="JuanDN Blog ~ Seguirle la pista a un comando" />
+<meta property="og:description" content="<p>Repasamos como buscar información sobre comandos y los paquetes que los instalan.</p>" />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <div id="avatar-box"><a href="https://juandn.github.io/juandn-blog"><img id="avatar" src="https://juandn.github.io/juandn-blog/images/juandn.jpeg"></a></div>
+    <h1>JuanDN Blog</h1>
+      <p>Sysadmin y Rolero</p>
+    <br>
+
+
+    <nav class="nav">
+      <ul class="list-bare">
+      
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/archives.html">Archivos</a></li>
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/categories.html">Categorias</a></li>
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/tags.html">Tags</a></li>
+         
+          <li><a class="nav__link" href="https://juandn.github.io/juandn-blog/pages/sobre-mi.html">Sobre Mi</a></li>
+         
+      </ul>
+    </nav>
+
+    <p class="social">
+        <a href="https://github.com/juandn" target="_blank" ><img src="https://juandn.github.io/juandn-blog/theme/images/icons/github.png"></a>
+        <a href="https://es.linkedin.com/in/juan-manuel-d%C3%ADaz-nevado-b12473131" target="_blank" ><img src="https://juandn.github.io/juandn-blog/theme/images/icons/linkedin.png"></a>
+    </p>
+
+    <!--
+    <h2>Categories</h2>
+    <ul class="navbar">
+      <li  class="active" ><a href="https://juandn.github.io/juandn-blog/category/bash.html">bash</a></li>
+      <li  ><a href="https://juandn.github.io/juandn-blog/category/general.html">General</a></li>
+      <li  ><a href="https://juandn.github.io/juandn-blog/category/sql.html">SQL</a></li>
+    </ul> 
+    -->
+  </aside>
+
+  <!-- Content -->
+  <article>
+<section id="content">
+    <article>
+        <h2 class="post_title post_detail"><a href="https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html" rel="bookmark" title="Permalink to Seguirle la pista a un comando">Seguirle la pista a un comando</a></h2>
+        <div class="entry-content blog-post">
+            <p>Bueno, hoy tabulando en mi consola he encontrado un comando que no sabia que tenia en el servidor, 
+como estaba modificando el script de creación de servidores me rayó lo suficiente como para buscar
+de donde había salido.</p>
+<p>Lo mas obvio es mirar si un paquete con ese nombre se había colado en mi instalación:</p>
+<div class="highlight"><pre><span></span><code>apt-cache<span class="w"> </span>show<span class="w"> </span>&lt;nombre<span class="w"> </span>del<span class="w"> </span>paquete&gt;
+</code></pre></div>
+
+<p>obviamente no encontró nada, el comando es un script que algún otro paquete instaló, así que necesitamos
+encontrar <code>que paquete es responsable de este archivo para ello ejecutamos:</code></p>
+<div class="highlight"><pre><span></span><code>dpkg<span class="w"> </span>-S<span class="w"> </span>&lt;path<span class="w"> </span>completo<span class="w"> </span>al<span class="w"> </span>archivo&gt;
+</code></pre></div>
+
+<p>El comando <code>dpkg</code> es nuestro mejor aliado para preguntar por paquetes que estén instalados en el sistema,
+el flag <em>-S</em> nos permite buscar que paquete es el dueño del archivo que pasemos como parámetro.</p>
+<p>Este comando nos devuelve el paquete responsable de ponerlo en el sistema, pero esto no ayudo, pq
+está claro que no íbamos a tener la suerte de que fuera un paquete que nosotros instalamos.</p>
+<p>Así que, como nos encontramos ante un paquete que ha sido instalado como dependencia de otro tenemos
+que pedir los paquetes que lo tengan como dependencia.</p>
+<div class="highlight"><pre><span></span><code>apt-cache<span class="w"> </span>rdepends<span class="w"> </span>--installed<span class="w"> </span>&lt;nombre<span class="w"> </span>del<span class="w"> </span>paquete&gt;
+</code></pre></div>
+
+<p>Al buscar las dependencias volvemos a apt, en este caso con <code>apt-cache</code> junto con rdepends para
+buscar dependencias inversas. Si usáramos rdepends directamente nos veríamos desbordados por la
+enorme lista de dependencias de todos los paquetes de los repos de nuestra distro.</p>
+<p>Así que tenemos que usar el flag <code>--installed</code> para que solo muestre aquellos que tenemos en el 
+sistema que es lo que queríamos.</p>
+<p>En esta salida de ejemplo, buscamos las dependencias inversas del paquete fuse. El resultado
+es una lista tabulada donde lista en el nivel más externo los paquetes que tiene de dependencia el buscado
+y en el siguiente nivel el paquete concreto del que depende.</p>
+<p>En este caso, vemos como al buscar lo que encuentra es la dependencia con fuse3, ya que es el paquete 
+que lo sustituye. Esto suele pasar cuando los nombres de paquetes se versionan para hacer convivir varias
+versiones como python2 y python3.</p>
+<div class="highlight"><pre><span></span><code>juandn@dev:/$<span class="w"> </span>apt-cache<span class="w"> </span>rdepends<span class="w"> </span>--installed<span class="w"> </span>fuse
+fuse
+Reverse<span class="w"> </span>Depends:
+<span class="w">  </span>ntfs-3g
+<span class="w">    </span>fuse3
+<span class="w">  </span>libfuse2
+<span class="w">  </span>xdg-desktop-portal
+<span class="w">    </span>fuse3
+<span class="w">  </span>ntfs-3g
+<span class="w">    </span>fuse3
+<span class="w">  </span>fuse3
+<span class="w">    </span>fuse3
+<span class="w">  </span>fuse3
+<span class="w">  </span>exfat-fuse
+<span class="w">    </span>fuse3
+<span class="w">  </span>libfuse2
+<span class="w">    </span>fuse3
+</code></pre></div>
+
+<p>Otra salida que podemos encontrar es un <em>|</em> delante del nombre del paquete como en:</p>
+<div class="highlight"><pre><span></span><code>juandn@dev:/mnt$<span class="w"> </span>apt-cache<span class="w"> </span>rdepends<span class="w"> </span>--installed<span class="w"> </span>apache2
+apache2
+Reverse<span class="w"> </span>Depends:
+<span class="w">  </span>task-web-server
+<span class="w">  </span>libapache2-mod-php7.4
+<span class="w"> </span><span class="p">|</span>javascript-common
+<span class="w">  </span>apache2-doc
+<span class="w">  </span>task-web-server
+<span class="w">  </span>libapache2-mod-php7.4
+<span class="w">  </span>apache2-doc
+<span class="w"> </span><span class="p">|</span>analog
+</code></pre></div>
+
+<p>Aquí vemos como varios paquetes dependen de apache2, pero javascript-common y analog tiene delante un <em>|</em>.
+Si mostramos la información del paquete javascript-common, vemos que depende de apache2 o de otros, no "y" de otros.</p>
+<div class="highlight"><pre><span></span><code>juandn@dev:/mnt$<span class="w"> </span>apt-cache<span class="w"> </span>show<span class="w"> </span>javascript-common
+Package:<span class="w"> </span>javascript-common
+Version:<span class="w"> </span><span class="m">11</span>+nmu1
+Installed-Size:<span class="w"> </span><span class="m">33</span>
+Maintainer:<span class="w"> </span>Debian<span class="w"> </span>Javascript<span class="w"> </span>Maintainers<span class="w"> </span>&lt;pkg-javascript-devel@lists.alioth.debian.org&gt;
+Architecture:<span class="w"> </span>all
+*Suggests:<span class="w"> </span>apache2<span class="w"> </span><span class="o">(</span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">2</span>.4.6~<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>lighttpd<span class="w"> </span><span class="p">|</span><span class="w"> </span>httpd*
+Description-en:<span class="w"> </span>Base<span class="w"> </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>JavaScript<span class="w"> </span>library<span class="w"> </span>packages
+<span class="w"> </span>Web<span class="w"> </span>applications<span class="w"> </span>that<span class="w"> </span>use<span class="w"> </span>JavaScript<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>distribute<span class="w"> </span>it<span class="w"> </span>through<span class="w"> </span>HTTP.<span class="w"> </span>Using
+<span class="w"> </span>a<span class="w"> </span>common<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>every<span class="w"> </span>script<span class="w"> </span>avoids<span class="w"> </span>the<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>this<span class="w"> </span>path<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>HTTP
+<span class="w"> </span>server<span class="w"> </span><span class="k">for</span><span class="w"> </span>every<span class="w"> </span>package.
+<span class="w"> </span>.
+<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>helper<span class="w"> </span>package<span class="w"> </span>that<span class="w"> </span>creates<span class="w"> </span>/usr/share/javascript<span class="w"> </span>and<span class="w"> </span>enables<span class="w"> </span>it<span class="w"> </span><span class="k">in</span>
+<span class="w"> </span>the<span class="w"> </span>Apache<span class="w"> </span>and<span class="w"> </span>Lighttpd<span class="w"> </span>webserver.
+Description-md5:<span class="w"> </span>1c8d846310501114a6acd24c4e760036
+Section:<span class="w"> </span>javascript
+Priority:<span class="w"> </span>optional
+Filename:<span class="w"> </span>pool/main/j/javascript-common/javascript-common_11+nmu1_all.deb
+</code></pre></div>
+
+<p>Pero un momento, no hay entrada <em>depends</em>, apache2 aparece como opción a elegir en 
+la entrada <em>Suggests</em>. Esto nos lleva a otra vuelta mas de tuerca, la búsqueda de dependencias 
+se complica pq hay varios motivos por los que un paquete depende de otro, no solo la 
+dependencia directa de instalación.</p>
+<p>Si ejecutamos <code>man apt-cache</code> podemos encontrar opciones para controlar la salida de 
+los comandos depends y rdepends.</p>
+<blockquote>
+<p>--no-pre-depends, --no-depends, --no-recommends, --no-suggests, --no-conflicts,
+  --no-breaks, --no-replaces, --no-enhances
+      Per default the depends and rdepends print all dependencies. This can be tweaked with
+      these flags which will omit the specified dependency type. Configuration Item:
+      APT::Cache::ShowDependencyType e.g.  APT::Cache::ShowRecommends.</p>
+<p>--implicit
+      Per default depends and rdepends print only dependencies explicitly expressed in the
+      metadata. With this flag it will also show dependencies implicitly added based on the
+      encountered data. A Conflicts: foo e.g. expresses implicitly that this package also
+      conflicts with the package foo from any other architecture. Configuration Item:
+      APT::Cache::ShowImplicit.</p>
+</blockquote>
+<p>En general con esto es más que suficiente para seguirle la pista a ese archivo que no
+sabéis de donde ha salido en vuestro sistema y recordad, las man-pages son vuestras amigas.</p>
+        </div>
+        <div class="post_list">
+            <span>By </span>
+            <a href="https://juandn.github.io/juandn-blog/author/juan-manuel-diaz-nevado.html">@Juan Manuel Díaz Nevado</a>
+            <span> in </span>
+            <span class="post_category"><a href="https://juandn.github.io/juandn-blog/category/bash.html" rel="bookmark" title="Permalink to bash">[ bash ]</a></span>
+            <span class="post_date">2023-01-24</span>
+            <div><span>Tags : </span>
+                <span><a href="https://juandn.github.io/juandn-blog/tag/apt.html">#apt, </a></span>
+                <span><a href="https://juandn.github.io/juandn-blog/tag/packages.html">#packages, </a></span>
+                <span><a href="https://juandn.github.io/juandn-blog/tag/cli.html">#cli, </a></span>
+                <span><a href="https://juandn.github.io/juandn-blog/tag/bash.html">#bash, </a></span>
+            </div>
+
+            <div class="entry-social">
+                <span class="twitter"><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html&text=Seguirle la pista a un comando&via="><img src="https://juandn.github.io/juandn-blog/theme/images/icons/twitter-s.png"></a></span>
+
+                <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html&t=Seguirle la pista a un comando"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/facebook-s.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html&title=Seguirle la pista a un comando" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/linkedin-s.png"></a>
+
+                <span class="mail"><a href="mailto:?subject=Seguirle la pista a un comando&amp;body=Viens découvrir un article à propos de [Seguirle la pista a un comando] sur le site de Juan M. Díaz Nevado. https://juandn.github.io/juandn-blog/seguirle-la-pista-a-un-comando.html" title="Share by Email" target="_blank"><img src="https://juandn.github.io/juandn-blog/theme/images/icons/mail-s.png"></a></span>
+            </div>
+        </div>
+    </article>
+</section>
+  </article>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Blog powered by <a href="http://getpelican.com/">Pelican</a>, 
+      which takes great advantage of <a href="http://python.org">Python</a>.
+      Theme <a href="https://github.com/parbhat/pelican-antracite">Pelican-antracite</a> by <a href="https://juandn.github.io/juandn-blog">juandn</a>.
+    </p>
+  </footer>
+
+
+</body>
+</html>

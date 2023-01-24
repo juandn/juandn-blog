@@ -100,7 +100,7 @@ article > header {
 /* Links */;
 a  { color:#c88127; text-decoration:none; }
 a:visited { color:#3c5868; text-decoration:none; }
-.post_title > a:visited { color:#c88127; text-decoration:none; }
+.post_title > a:visited { color:#c88127git stsus; text-decoration:none; }
 a:link { color:#c88127; text-decoration:none; }
 a:active { color:#c88127; text-decoration:none; }
 a:hover { text-decoration: underline; }

@@ -1,6 +1,7 @@
 Title: Tipos de comandos SQL
 Date: 2023-01-09 21:00
 Category: SQL
+Tags: Teoría, sql
 Authors: Juan Manuel Díaz Nevado
 Summary: Los comandos SQL pueden dividirse en 5 sub-lenguajes, los revisamos.
 
