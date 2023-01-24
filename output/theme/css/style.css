@@ -108,7 +108,8 @@ a:hover { text-decoration: underline; }
 /* Code */
 .highlight pre {
   font-size: 14px;
-  overflow: scroll;
+  overflow: auto;
+  padding: 4px;
 }
 
 /* Sidebar */
